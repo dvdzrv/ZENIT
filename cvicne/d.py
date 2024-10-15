@@ -6,17 +6,32 @@ for i in range(n_cisel):
     array_cisel[i] = int(input())
 
 for i in range(n_cisel):
-    vysledny_array[i] = int((''.join((bin(array_cisel[i])[2:]).zfill(32)))[::-1], 2)
+    vysledny_array[i] = int(   (  (   bin(array_cisel[i])[2:]   ).zfill(32)   )[::-1], 2)
     print(vysledny_array[i])
 
 
 
+"""
+array_cisel[i] <- výber čísla
 
+bin(array_cisel[i]) <- premena čísla do 2kovej sústavy
 
+bin(array_cisel[i])[2:] <- odstránenie 0b prefixu
+
+bin(array_cisel[i])[2:].zfill(32) <- doplenenie cifier na 32 bit
+
+(((bin(array_cisel[i])[2:]).zfill(32))[::-1] <- otočenie arrayu
+
+int(((bin(array_cisel[i])[2:]).zfill(32))[::-1], 2) <- premena na 10tkovú sústavu
+
+"""
 
 
 
 """
+#PRVY POKUS LOL
+
+
 c1 = bin(1)[2:]
 c1 = c1.zfill(32)
 c2 = [0]*32

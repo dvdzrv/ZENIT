@@ -19,3 +19,18 @@ for i in range(len(moj_text)):
     if len(moj_text[i]) > pocet_znakov:
         slovo = moj_text[i]
         pocet_znakov = len(moj_text[i])
+
+
+#SPRAVENIE Z LISTU STRING
+array = [0]*10
+string = ''.join(str(array))
+
+
+#OTOČENIE STRINGU
+string = "LOREM LOREM LOREM"
+print(string[::-1])
+
+
+#SPOJENIE LISTU DO STRINGU
+array[3] = {1,2,5}
+print(''.join(array))
