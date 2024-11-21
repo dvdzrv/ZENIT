@@ -1,23 +1,27 @@
-pocet_vyletov = int(input())
+vstup = 12
+možnosti = [5,7,13]
 
-array_vstupov = [0] * pocet_vyletov
 
-for i in range(pocet_vyletov):
-    array_vstupov[i] = int(input())
+def solve(vstup, možnosti):
+    delitel = možnosti[0]
+    kvocient = vstup // delitel
+    modulus = vstup % delitel
 
-for i in range(pocet_vyletov):
-    if array_vstupov[i] % 13 == 0:
-        print('ANO')
-    elif array_vstupov[i] % 7 == 0:
-        print('ANO')
-    elif array_vstupov[i] % 5 == 0:
-        print('ANO')
-    elif array_vstupov[i] % 7 % 5 == 0:
-        print('ANO')
-    elif array_vstupov[i] % 13 % 7 == 0:
-        print('ANO')
-    elif array_vstupov[i] % 13 % 5 == 0:
-        print('ANO')
-    elif array_vstupov[i] % 13 % 7 % 5 == 0:
-        print('ANO')
-    else: print('NIE')
+    if modulus == 0:
+        print(f"{kvocient} X {delitel}")
+        return True
+
+    if kvocient == 0 or len(možnosti) == 1:
+        return False
+
+    while not solve(vstup - delitel * kvocient, možnosti[1:]):
+        if kvocient - 1 != 0:
+            kvocient -= 1
+            continue
+        return solve(vstup, možnosti[1:])
+
+    print(f"{kvocient} X {delitel}")
+    return True
+
+
+solve(vstup, možnosti)
